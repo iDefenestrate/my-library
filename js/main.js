@@ -21,3 +21,6 @@ const theHobbit = new Book('The Hobbit', 'Idk', 1232, 'not read');
 const harryPotter = new Book('Harry Potter', 'Idk', 2300, 'read');
 myLibrary.push(theHobbit);
 myLibrary.push(harryPotter);
+
+const btn = document.querySelector('.add-btn');
+btn.addEventListener('click', addBookToLibrary);
