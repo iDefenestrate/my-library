@@ -3,3 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --main-color: #310069;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  background-color: var(--main-color);
+  justify-content: left;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.header > h2 {
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2rem;
+}
+
+.header > img {
+  height: 60px;
+  width: 60px;
+}
