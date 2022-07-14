@@ -2,10 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 :root {
-  --main-color: #310069;
+  --main-color: #dec8f8;
   --main-gradient: linear-gradient(#310069, rgb(18, 18, 141));
   --secondary-gradient: linear-gradient(rgb(233, 229, 229), rgb(227, 226, 228));
 }
@@ -27,8 +29,6 @@
 
 .header > h2 {
   color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
   font-size: 2.7rem;
 }
 
@@ -69,7 +69,38 @@
 }
 
 .book-container {
-  margin-top: 40px;
-  min-height: 700px;
-  width: max(700px, 70%);
+  display: grid;
+  padding: 100px;
+  gap: 50px;
+  height: 100vh;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  margin-top: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  background-color: var(--main-color);
+  gap: 10px;
+  color: black;
+  border-radius: 0.6rem;
+  text-align: center;
+}
+
+.card > p:first-child {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.card > p:nth-child(2) {
+  font-size: 1.3rem;
+}
+
+.card > p:nth-child(3) {
+  font-size: 1.1rem;
 }
