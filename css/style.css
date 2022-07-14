@@ -6,7 +6,8 @@
 
 :root {
   --main-color: #310069;
-  --secondary-color: rgb(233, 229, 229);
+  --main-gradient: linear-gradient(#310069, rgb(18, 18, 141));
+  --secondary-gradient: linear-gradient(rgb(233, 229, 229), rgb(227, 226, 228));
 }
 
 .container {
@@ -16,7 +17,7 @@
 
 .header {
   display: flex;
-  background-color: var(--main-color);
+  background-image: var(--main-gradient);
   justify-content: left;
   align-items: center;
   gap: 20px;
@@ -41,14 +42,14 @@
   justify-content: center;
   align-items: center;
   padding: 40px 0px 60px 0px;
-  background-color: var(--secondary-color);
+  background-image: var(--secondary-gradient);
 }
 
 .add-btn {
   background: none;
   border: none;
   cursor: pointer;
-  background-color: var(--main-color);
+  background-image: var(--main-gradient);
   color: white;
 
   padding: 20px 30px;
