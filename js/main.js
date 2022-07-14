@@ -14,7 +14,7 @@ function addBookToLibrary() {
   let status = prompt('read or not read?');
 
   let newBook = new Book(title, author, pages, status);
-  myLibrary.push(newEntry);
+  myLibrary.push(newBook);
 }
 
 const theHobbit = new Book('The Hobbit', 'Idk', 1232, 'not read');
