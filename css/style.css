@@ -6,6 +6,7 @@
 
 :root {
   --main-color: #310069;
+  --secondary-color: rgb(233, 229, 229);
 }
 
 .container {
@@ -31,4 +32,22 @@
 .header > img {
   height: 60px;
   width: 60px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px 60px 0px;
+  background-color: var(--secondary-color);
+}
+
+.add-btn {
+}
+
+.book-container {
+  margin-top: 40px;
+  min-height: 700px;
+  width: max(700px, 70%);
 }
