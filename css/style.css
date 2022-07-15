@@ -47,24 +47,23 @@
   background-image: var(--secondary-gradient);
 }
 
-.add-btn {
+.form-btn {
   background: none;
   border: none;
   cursor: pointer;
   background-image: var(--main-gradient);
   color: white;
-
   padding: 20px 30px;
   font-size: 1.2rem;
   border-radius: 0.6rem;
   font-weight: bold;
 }
 
-.add-btn:hover {
+.form-btn:hover {
   opacity: 0.9;
 }
 
-.add-btn:active {
+.form-btn:active {
   opacity: 0.7;
 }
 
@@ -104,4 +103,64 @@
 
 .card > p:nth-child(3) {
   font-size: 1.1rem;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 250ms ease-in-out;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+  border: 1px solid black;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header .close-btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
 }

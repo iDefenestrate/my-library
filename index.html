@@ -14,8 +14,28 @@
         <img src="images/sidebook.png" alt="book icon" />
       </div>
       <div class="main">
-        <button class="add-btn">+ Add Book</button>
+        <button data-modal-target class="form-btn">+ Add Book</button>
         <div class="book-container"></div>
+
+        <div class="modal" id="modal">
+          <div class="modal-header">
+            <div class="modal-title">Modal Title</div>
+            <button data-close-button class="close-btn">&times;</button>
+          </div>
+          <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, at
+            saepe! Error fugit vitae eum labore tenetur ad veritatis, quas
+            voluptatem, excepturi voluptates totam ducimus laudantium reiciendis
+            enim atque ut inventore eius eligendi omnis, ex suscipit nulla.
+            Dolores minima itaque, laudantium maxime est, vel facilis nulla ex
+            in minus molestiae dolorum. Consequuntur nihil sed earum, illum
+            aliquid adipisci asperiores deserunt animi, quia perspiciatis minima
+            minus rem dolorem omnis sit enim corporis! Iusto dolore eveniet,
+            blanditiis ut sed perspiciatis accusantium cupiditate?
+          </div>
+        </div>
+
+        <div id="overlay"></div>
       </div>
     </div>
 
