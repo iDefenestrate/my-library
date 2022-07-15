@@ -1,10 +1,10 @@
 let myLibrary = [];
 
-function Book(title, author, pages, readStatus) {
+function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.readStatus = readStatus;
+  this.status = status;
 }
 
 function addBookToLibrary() {
@@ -27,9 +27,11 @@ myLibrary.push(harryPotter);
 const btn = document.querySelector('.add-btn');
 btn.addEventListener('click', addBookToLibrary);
 
+// Write a function that loops through the array and displays each book on the page. You can display them in some sort of table, or each on their own “card”. It might help for now to manually add a few books to your array so you can see the display.
+
 // display a card in book container for each object in the myLibrary array
 
-function createCard(item) {
+myLibrary.forEach((item) => {
   const bookContainer = document.querySelector('.book-container');
   const cEntry = document.createElement('div');
   const cTitle = document.createElement('p');
@@ -46,6 +48,6 @@ function createCard(item) {
   cPages.textContent = item.pages + ' pages';
   cStatus.textContent = item.status;
   bookContainer.appendChild(cEntry);
-}
+});
 
 // create pop-up form that creates an object for each submission and pushes it to myLibrary array
