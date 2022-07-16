@@ -24,20 +24,38 @@
           </div>
           <div class="modal-body">
             <form id="form">
-              <label for="title">Title <abbr title="required">*</abbr></label>
-              <input type="text" name="title" id="title" required />
-              <label for="author">Author <abbr title="required">*</abbr></label>
-              <input type="text" name="author" id="author" required />
-              <label for="pages"
-                >Page Count <abbr title="required">*</abbr></label
-              >
-              <input type="number" name="pages" id="pages" min="0" required />
+              <input
+                type="text"
+                name="title"
+                id="title"
+                required
+                placeholder="Title"
+              />
+
+              <input
+                type="text"
+                name="author"
+                id="author"
+                required
+                placeholder="Author"
+              />
+
+              <input
+                type="number"
+                name="pages"
+                id="pages"
+                min="0"
+                required
+                placeholder="Page Count"
+              />
 
               <div class="read-ask">
                 <label for="status">Have you read this book?</label>
                 <input type="checkbox" name="status" id="status" />
               </div>
-              <button class="add-btn" id="form" type="submit">Add Book</button>
+              <button data-form-submit class="add-btn" id="form" type="submit">
+                Book it
+              </button>
             </form>
           </div>
         </div>

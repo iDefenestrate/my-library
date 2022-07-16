@@ -8,6 +8,8 @@
 
 :root {
   --main-color: #dec8f8;
+  --secondary-color: #7842b4;
+  --tertiary-color: white;
   --main-gradient: linear-gradient(#310069, rgb(18, 18, 141));
   --secondary-gradient: linear-gradient(rgb(233, 229, 229), rgb(227, 226, 228));
 }
@@ -113,10 +115,11 @@
   transform: translate(-50%, -50%) scale(0);
   transition: 150ms ease-in-out;
   z-index: 2;
-  background-color: white;
+  background-color: var(--tertiary-color);
   width: 500px;
   max-width: 80%;
   border-radius: 0.5rem;
+  padding: 20px;
 }
 
 .modal.active {
@@ -131,11 +134,12 @@
 }
 
 .modal-title {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .modal-header .close-btn {
@@ -157,10 +161,8 @@
   padding: 0px 5px 20px 5px;
 }
 
-.modal-body label {
-  margin-top: 20px;
-  margin-bottom: 8px;
-  font-size: 1.3rem;
+input::placeholder {
+  opacity: 0.7;
 }
 
 .modal-body input {
@@ -169,6 +171,14 @@
   border-radius: 0.5rem;
   border: 1px rgb(207, 204, 207) solid;
   box-shadow: 0px 2px 1px rgb(221, 221, 223);
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.modal-body input:focus {
+  outline: none;
+  border: 2px solid var(--secondary-color);
 }
 
 .read-ask {
@@ -180,7 +190,13 @@
 }
 
 input[type='checkbox'] {
-  margin-top: 16px;
+  margin-top: 12px;
+  accent-color: white;
+  box-shadow: none;
+}
+
+label[for='status'] {
+  font-size: 1.3rem;
 }
 
 .add-btn {
@@ -197,7 +213,7 @@ input[type='checkbox'] {
   font-weight: bold;
   margin: 0 auto;
   margin-top: 25px;
-  box-shadow: 0px 2px 2px rgb(184, 184, 185);
+  box-shadow: 0px 2px 2px rgb(221, 221, 223);
 }
 
 .add-btn:hover {
@@ -206,8 +222,18 @@ input[type='checkbox'] {
   opacity: 0.9;
 }
 
+.add-btn:focus {
+  outline: none;
+  border: 2px solid var(--secondary-color);
+}
+
 .add-btn:active {
   opacity: 0.7;
+}
+
+#status {
+  height: 25px;
+  width: 25px;
 }
 
 #overlay {
@@ -217,7 +243,7 @@ input[type='checkbox'] {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: rgb(0, 0, 0, 0.5);
   pointer-events: none;
 }
 
