@@ -67,6 +67,7 @@ const addBtn = document.querySelector('[data-form-submit]');
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
+  const modal = document.querySelector('.modal');
   let title = document.getElementById('title');
   let author = document.getElementById('author');
   let pages = document.getElementById('pages');
@@ -79,4 +80,17 @@ addBtn.addEventListener('click', (e) => {
   let newEntry = new Book(title, author, pages, status);
   myLibrary.push(newEntry);
   createCard();
+
+  wipeModal(modal);
 });
+
+function wipeModal(modal) {
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+  let title = document.getElementById('title');
+  let author = document.getElementById('author');
+  let pages = document.getElementById('pages');
+  title.value = '';
+  author.value = '';
+  pages.value = '';
+}
