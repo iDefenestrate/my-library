@@ -1,3 +1,5 @@
+const bookContainer = document.querySelector('.book-container');
+
 let myLibrary = [];
 
 function Book(title, author, pages, status) {
@@ -9,25 +11,22 @@ function Book(title, author, pages, status) {
 
 // display a card in book container for each object in the array
 
-const createCard = () => {
-  const bookContainer = document.querySelector('.book-container');
+const pasteCard = (item) => {
   const cEntry = document.createElement('div');
   const cTitle = document.createElement('p');
   const cAuthor = document.createElement('p');
   const cPages = document.createElement('p');
   const cStatus = document.createElement('p');
-  myLibrary.forEach((item) => {
-    cEntry.appendChild(cTitle);
-    cEntry.appendChild(cAuthor);
-    cEntry.appendChild(cPages);
-    cEntry.appendChild(cStatus);
-    cEntry.classList.add('card');
-    cTitle.textContent = item.title.toUpperCase();
-    cAuthor.textContent = item.author;
-    cPages.textContent = item.pages + ' pages';
-    cStatus.textContent = item.status;
-    bookContainer.appendChild(cEntry);
-  });
+  cEntry.appendChild(cTitle);
+  cEntry.appendChild(cAuthor);
+  cEntry.appendChild(cPages);
+  cEntry.appendChild(cStatus);
+  cEntry.classList.add('card');
+  cTitle.textContent = item.title.toUpperCase();
+  cAuthor.textContent = item.author;
+  cPages.textContent = item.pages + ' pages';
+  cStatus.textContent = item.status;
+  bookContainer.appendChild(cEntry);
 };
 
 // create pop-up form
@@ -72,28 +71,32 @@ const wipeModal = (modal) => {
   pages.value = '';
 };
 
-// have submit button push the inputted values into the array
+// have submit button push the inputted values into the array + create the card
 
 const addBtn = document.querySelector('[data-form-submit]');
 
-addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const modal = document.querySelector('.modal');
+const createEntry = () => {
   let title = document.getElementById('title');
   let author = document.getElementById('author');
   let pages = document.getElementById('pages');
-  // let status = document.getElementById('pages');
   title = title.value;
   author = author.value;
   pages = pages.value;
   let status = 'hey';
-  // status = pages.value;
   let newEntry = new Book(title, author, pages, status);
   myLibrary.push(newEntry);
-  createCard();
-  wipeModal(modal);
-});
-
-const checkValid = () => {
-  // function
 };
+
+const createCard = () => {
+  myLibrary.forEach((item) => {
+    pasteCard(item);
+  });
+};
+
+addBtn.addEventListener('click', () => {
+  const modal = document.querySelector('.modal');
+  wipeModal(modal);
+  createEntry();
+  bookContainer.innerText = '';
+  createCard();
+});
