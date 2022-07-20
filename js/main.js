@@ -9,7 +9,7 @@ function Book(title, author, pages, status) {
 
 // display a card in book container for each object in the array
 
-function createCard() {
+const createCard = () => {
   const bookContainer = document.querySelector('.book-container');
   const cEntry = document.createElement('div');
   const cTitle = document.createElement('p');
@@ -28,7 +28,7 @@ function createCard() {
     cStatus.textContent = item.status;
     bookContainer.appendChild(cEntry);
   });
-}
+};
 
 // create pop-up form
 
@@ -51,15 +51,26 @@ closeModalButton.addEventListener('click', () => {
   closeModal(modal);
 });
 
-function openModal(modal) {
+const openModal = (modal) => {
   modal.classList.add('active');
   overlay.classList.add('active');
-}
+};
 
-function closeModal(modal) {
+const closeModal = (modal) => {
   modal.classList.remove('active');
   overlay.classList.remove('active');
-}
+};
+
+const wipeModal = (modal) => {
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+  let title = document.getElementById('title');
+  let author = document.getElementById('author');
+  let pages = document.getElementById('pages');
+  title.value = '';
+  author.value = '';
+  pages.value = '';
+};
 
 // have submit button push the inputted values into the array
 
@@ -80,17 +91,9 @@ addBtn.addEventListener('click', (e) => {
   let newEntry = new Book(title, author, pages, status);
   myLibrary.push(newEntry);
   createCard();
-
   wipeModal(modal);
 });
 
-function wipeModal(modal) {
-  modal.classList.remove('active');
-  overlay.classList.remove('active');
-  let title = document.getElementById('title');
-  let author = document.getElementById('author');
-  let pages = document.getElementById('pages');
-  title.value = '';
-  author.value = '';
-  pages.value = '';
-}
+const checkValid = () => {
+  // function
+};
