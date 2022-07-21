@@ -73,16 +73,18 @@ const wipeModal = (modal) => {
 
 // have submit button push the inputted values into the array + create the card
 
-const addBtn = document.querySelector('[data-form-submit]');
+const form = document.getElementById('form');
+const modal = document.querySelector('.modal');
 
 const createEntry = () => {
   let title = document.getElementById('title');
   let author = document.getElementById('author');
   let pages = document.getElementById('pages');
+  let status = 'hey';
   title = title.value;
   author = author.value;
   pages = pages.value;
-  let status = 'hey';
+
   let newEntry = new Book(title, author, pages, status);
   myLibrary.push(newEntry);
 };
@@ -93,10 +95,14 @@ const createCard = () => {
   });
 };
 
-addBtn.addEventListener('click', () => {
-  const modal = document.querySelector('.modal');
-  wipeModal(modal);
+const addEntry = () => {
   createEntry();
-  bookContainer.innerText = '';
+  bookContainer.textContent = '';
   createCard();
+  wipeModal(modal);
+};
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addEntry();
 });
