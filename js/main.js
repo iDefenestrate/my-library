@@ -80,10 +80,16 @@ const createEntry = () => {
   let title = document.getElementById('title');
   let author = document.getElementById('author');
   let pages = document.getElementById('pages');
-  let status = 'hey';
+  let status = document.getElementById('status');
   title = title.value;
   author = author.value;
   pages = pages.value;
+
+  if (status.checked) {
+    status = 'read';
+  } else {
+    status = 'not read';
+  }
 
   let newEntry = new Book(title, author, pages, status);
   myLibrary.push(newEntry);
