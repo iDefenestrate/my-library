@@ -16,16 +16,21 @@ const pasteCard = (item) => {
   const cTitle = document.createElement('p');
   const cAuthor = document.createElement('p');
   const cPages = document.createElement('p');
-  const cStatus = document.createElement('p');
+  const cStatus = document.createElement('btn');
+  const removeBtn = document.createElement('btn');
   cEntry.appendChild(cTitle);
   cEntry.appendChild(cAuthor);
   cEntry.appendChild(cPages);
   cEntry.appendChild(cStatus);
+  cEntry.appendChild(removeBtn);
   cEntry.classList.add('card');
   cTitle.textContent = item.title.toUpperCase();
-  cAuthor.textContent = item.author;
+  cAuthor.textContent = 'by ' + item.author;
   cPages.textContent = item.pages + ' pages';
+  cStatus.classList.add('status-button');
   cStatus.textContent = item.status;
+  removeBtn.classList.add('remove-button');
+  removeBtn.textContent = 'Remove';
   bookContainer.appendChild(cEntry);
 };
 
@@ -86,9 +91,9 @@ const createEntry = () => {
   pages = pages.value;
 
   if (status.checked) {
-    status = 'read';
+    status = 'Read';
   } else {
-    status = 'not read';
+    status = 'Not Read';
   }
 
   let newEntry = new Book(title, author, pages, status);
@@ -112,3 +117,21 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   addEntry();
 });
+
+// Reset Library
+
+const resetBtn = document.querySelector('[data-reset-library]');
+
+const reset = () => {
+  const bookContainer = document.querySelector('.book-container');
+  myLibrary.length = 0;
+  bookContainer.textContent = '';
+};
+
+resetBtn.onclick = reset;
+
+// Add a button on each book’s display to remove the book from the library
+// associate DOM elements with the actual book objects in some way
+// One easy solution is giving them a data-attribute that corresponds to the index of the library array.
+
+//  create a function that toggles a book’s read status on your Book prototype instance.

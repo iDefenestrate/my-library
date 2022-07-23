@@ -14,7 +14,15 @@
         <img src="images/sidebook.png" alt="book icon" />
       </div>
       <div class="main">
-        <button data-modal-target class="form-btn">+ Add Book</button>
+        <div class="primary-buttons">
+          <button data-modal-target class="primary form-btn">
+            &#43; Add Book
+          </button>
+          <button data-reset-library class="primary reset-button">
+            &#45; Reset Library
+          </button>
+        </div>
+
         <div class="book-container"></div>
 
         <div class="modal" id="modal">
@@ -45,7 +53,7 @@
                 name="pages"
                 id="pages"
                 min="0"
-                placeholder="Page Count"
+                placeholder="Pages"
                 required
               />
 
