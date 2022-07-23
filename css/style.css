@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,14 +11,13 @@
 :root {
   --main-color: #dec8f8;
   --secondary-color: #7842b4;
-  --tertiary-color: white;
   --main-gradient: linear-gradient(#310069, rgb(18, 18, 141));
   --secondary-gradient: linear-gradient(rgb(233, 229, 229), rgb(227, 226, 228));
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
+body {
+  height: 100vh;
+  background-image: var(--secondary-gradient);
 }
 
 .header {
@@ -40,13 +41,8 @@
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 0px 60px 0px;
-  margin-top: 3px;
-  background-image: var(--secondary-gradient);
+  margin: 30px auto;
+  text-align: center;
 }
 
 .form-btn {
@@ -71,29 +67,34 @@
 }
 
 .book-container {
-  display: grid;
-  margin: 0 auto;
-  gap: 50px;
-  height: 100vh;
-  grid-template-columns: repeat(5, 1fr);
-  margin-top: 30px;
-  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  margin-top: 60px;
+  gap: 30px;
+  padding-bottom: 40px;
+  background-image: var(--secondary-gradient);
+  margin-left: 115px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 300px;
-  width: 300px;
-  background-color: var(--main-color);
+  background-color: black;
   gap: 20px;
-  color: black;
+  color: var(--main-color);
   border-radius: 0.6rem;
   text-align: center;
-  padding: 0px 30px;
+  padding: 20px 40px;
   box-shadow: 1px 1px 4px rgb(134, 132, 132);
+  width: 300px;
+  overflow: auto;
+}
+
+.card > p {
+  word-wrap: break-word;
 }
 
 .card > p:first-child {
@@ -103,10 +104,46 @@
 
 .card > p:nth-child(2) {
   font-size: 1.3rem;
+  font-style: italic;
 }
 
 .card > p:nth-child(3) {
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+.card > p:nth-child(4) {
+  font-size: 1rem;
+}
+
+.status-button {
+  margin-top: 30px;
+}
+
+.remove-button,
+.status-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 0.9rem;
+  padding: 5px 20px;
+  width: 100%;
+  font-weight: bold;
+  display: flex;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-button:hover,
+.status-button:hover {
+  opacity: 0.9;
+}
+
+.remove-button:active,
+.status-button:active {
+  opacity: 0.7;
 }
 
 .modal {
@@ -116,7 +153,7 @@
   transform: translate(-50%, -50%) scale(0);
   transition: 150ms ease-in-out;
   z-index: 2;
-  background-color: var(--tertiary-color);
+  background-color: white;
   width: 500px;
   max-width: 80%;
   border-radius: 0.5rem;
